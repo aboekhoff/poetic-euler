@@ -1,0 +1,32 @@
+(require poet)
+
+(define (palindrome? n)  
+  (define s (+ n ""))
+  (define i (- s.length 1))
+  (define k 0)
+
+  (loop
+   (when (<= i k) 
+         (return #t))
+   (when (not (= (.charAt s k) (.charAt s i)))
+         (return #f))
+   (inc! k)
+   (dec! i)))
+
+(define (run-y x r)
+  (do ((y x (dec y)))
+      ((= y 0) r)
+    (let ((z (* x y)))
+      (when (<= z r) (return-from run-y r))
+      (when (palindrome? z) (set! r z)))))
+
+(define (run-x seed)
+  (define r 0)
+  (do ((x seed (dec x)))
+      ((= x 0) r)
+    (set! r (run-y x r))))
+
+(prn (run-x 99))
+(prn (run-x 999))
+     
+   
