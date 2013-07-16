@@ -1,7 +1,5 @@
 (require poet)
 
-(define (multiple-of-3? x)
-  (= 0 (mod x 3)))
 (define (sum-multiples-to n)  
   (define sum 0)
   (do ((i 0 (+ i 1)))
