@@ -1,0 +1,56 @@
+;; this one is pretty easy to do with pencil and paper
+;; but let's program it all the same
+
+(require poet)
+
+(define (defactor n m x)
+  (if (zero? (mod n m))
+      (defactor (/ n m) m (inc x))
+      [n x]))
+
+(define (prime-factors-of n)
+  (prime-factors-of* n 2))
+
+(define (prime-factors-of* n i)
+  (loop   
+   (cond
+    ((> i (/ n 2))
+     (return-from prime-factors-of* (list [n 1])))
+
+    ((zero? (mod n i)) 
+     (let* ((t  (defactor n i 0))
+            (n* t.0)
+            (x  t.1))                   
+       (return-from prime-factors-of* 
+          (cons [i x] (prime-factors-of* n* (inc i))))))
+
+    (:else
+     (inc! i)))))
+
+(define (get-factors n)
+  (define factors [])
+
+  (define (update-factors pair)  
+    (set! (. factors pair.0) (Math.max (or (. factors pair.0) 0) pair.1)))
+
+  (do ((i 2 (inc i)))
+      ((>= i n))
+    (.forEach (prime-factors-of i) update-factors))
+  factors)
+
+(define (factors->number factors)
+  (define result 1)
+  (do ((i 0 (inc i)))
+      ((>= i factors.length) result)
+    (when (. factors i)
+          (set! result (* result (Math.pow i (. factors i))))))
+  result)
+
+(define (solve n)
+  (factors->number (get-factors n)))
+
+(prn (solve 10))
+(prn (solve 20))
+
+    
+  

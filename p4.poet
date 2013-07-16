@@ -28,5 +28,3 @@
 
 (prn (run-x 99))
 (prn (run-x 999))
-     
-   
