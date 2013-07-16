@@ -1,0 +1,26 @@
+(require poet)
+
+(define the-number 600851475143)
+
+(define (defactor n m)
+  (if (zero? (mod n m))
+      (defactor (/ n m) m)
+      n))
+
+(define (prime-factors-of n)
+  (if (even? n)
+      (cons 2 (prime-factors-of* (defactor n 2) 3))
+      (prime-factors-of* n 3)))
+
+(define (prime-factors-of* n i)
+  (loop   
+   (when (> i (/ n 2)) 
+         (return-from prime-factors-of* (list n)))
+
+   (when (zero? (mod n i)) 
+         (return-from prime-factors-of* 
+                      (cons i (prime-factors-of* (defactor n i) (inc i)))))
+
+   (inc! i)))
+
+(prn (prime-factors-of the-number))

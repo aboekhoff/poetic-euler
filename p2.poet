@@ -1,0 +1,28 @@
+(require poet)
+
+(define sum 0)
+(define r1 1)
+(define r2 2)
+
+(define (next-fib)
+  (let ((r3 (+ r1 r2)))
+    (set r1 r2)
+    (set r2 r3)
+    r3))
+
+(define (solve end)
+  (define sum 2)
+  (loop
+   (define n (next-fib))
+   (when (> n end) 
+         (return-from solve sum))
+
+   (when (= 0 (mod n 2)) 
+         (set sum (+ sum n)))))
+
+(define max (* 4 1000 1000))
+(prn max)
+(prn (solve max))
+
+
+
