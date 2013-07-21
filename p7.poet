@@ -9,6 +9,11 @@
 (define count 1)
 (define current-number 3)
 
+(define (reset!)
+  (set! primes [2])
+  (set! count 1)
+  (set! current-number 3))
+
 (define (divides? divisor dividend) 
   (zero? (mod dividend divisor)))
 
@@ -20,8 +25,20 @@
    primes)
   #t)
 
+(define (faster-prime? num)
+  (do* ((i 0 (inc i)))
+       ((>= i primes.length) #t)
+       (when (divides? (. primes i) num)
+             (return-from faster-prime? #f))))
+
 (define (next!) 
   (when (prime? current-number) 
+        (.push primes current-number)
+        (inc! count))
+  (set! current-number (+ current-number 2)))
+
+(define (faster-next!) 
+  (when (faster-prime? current-number) 
         (.push primes current-number)
         (inc! count))
   (set! current-number (+ current-number 2)))
@@ -31,4 +48,32 @@
    (when (>= count n) (return (. primes (dec n))))
    (next!)))
 
-(prn (nth-prime 10001))
+(define (faster-nth-prime n)  
+  (loop
+   (when (>= count n) (return (. primes (dec n))))
+   (faster-next!)))
+
+(define-macro (time :& body)
+  `(let ()
+     (define before (.getTime (new Date)))
+     (define result (begin ,@body))
+     (define after  (.getTime (new Date)))
+     (println (/ (- after before) 1000) "ms:" result)))
+
+(reset!)
+(time (nth-prime 10001))
+
+(reset!)
+(time (nth-prime 10001))
+
+(reset!)
+(time (nth-prime 10001))
+
+(reset!)
+(time (faster-nth-prime 10001))
+
+(reset!)
+(time (faster-nth-prime 10001))
+
+(reset!)
+(time (faster-nth-prime 10001))
