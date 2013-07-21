@@ -1,0 +1,34 @@
+(require poet)
+(require poet/sequence)
+
+;; By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+
+;; What is the 10 001st prime number?
+
+(define primes [2])
+(define count 1)
+(define current-number 3)
+
+(define (divides? divisor dividend) 
+  (zero? (mod dividend divisor)))
+
+(define (prime? num)
+  (for-each 
+   (fn (prime) 
+       (when (divides? prime num) 
+             (return-from prime? #f)))
+   primes)
+  #t)
+
+(define (next!) 
+  (when (prime? current-number) 
+        (.push primes current-number)
+        (inc! count))
+  (set! current-number (+ current-number 2)))
+
+(define (nth-prime n)  
+  (loop
+   (when (>= count n) (return (. primes (dec n))))
+   (next!)))
+
+(prn (nth-prime 10001))
