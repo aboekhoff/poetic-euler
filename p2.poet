@@ -6,8 +6,8 @@
 
 (define (next-fib)
   (let ((r3 (+ r1 r2)))
-    (set r1 r2)
-    (set r2 r3)
+    (set! r1 r2)
+    (set! r2 r3)
     r3))
 
 (define (solve end)
@@ -18,7 +18,7 @@
          (return-from solve sum))
 
    (when (= 0 (mod n 2)) 
-         (set sum (+ sum n)))))
+         (set! sum (+ sum n)))))
 
 (define max (* 4 1000 1000))
 (prn max)

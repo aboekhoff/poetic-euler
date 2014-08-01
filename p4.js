@@ -23,27 +23,6 @@ RT["p4::palindrome?"] = function(arg_1_0) {
     return local_1_0;
 };
 
-RT["p4::down-from"] = function(arg_1_0, arg_1_1) {
-    var local_1_0, local_1_1, local_1_2, local_1_3;
-    block_1_0: {
-        local_1_1 = arg_1_0;
-        local_1_2 = local_1_1;
-        block_1_1: {
-            block_1_2:for(;;) {
-                local_1_3 = RT["poet::="](local_1_2, 0);
-                if (local_1_3 != null && local_1_3 !== false) {
-                    break block_1_1;
-                };
-                arg_1_1(local_1_2);
-                local_1_1 = RT["poet::dec"](local_1_2);
-                local_1_2 = local_1_1;
-                local_1_0 = local_1_2;
-            };
-        };
-    };
-    return local_1_0;
-};
-
 RT["p4::run-y"] = function(arg_1_0, arg_1_1) {
     var local_1_0, local_1_1, local_1_2, local_1_3, local_1_4, local_1_5, local_1_6;
     block_1_0: {

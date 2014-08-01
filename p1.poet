@@ -7,6 +7,6 @@
     (when 
      (or (= (mod i 3) 0)
          (= (mod i 5) 0))
-     (set sum (+ sum i)))))
+     (set! sum (+ sum i)))))
 
 (prn (sum-multiples-to 1000))

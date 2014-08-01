@@ -257,7 +257,7 @@ var local_0_0, local_0_1, local_0_2;
 local_0_0 = new RT["poet::Date"]()["getTime"]();
 local_0_1 = RT["p7::nth-prime"](10001);
 local_0_2 = new RT["poet::Date"]()["getTime"]();
-RT["poet::println"](RT["poet::/"](RT["poet::-"](local_0_2, local_0_0), 1000), "ms: ", local_0_1);
+RT["poet::println"](RT["poet::/"](RT["poet::-"](local_0_2, local_0_0), 1000), "ms:", local_0_1);
 })();
 
 RT["p7::reset!"]();
@@ -267,7 +267,7 @@ var local_0_0, local_0_1, local_0_2;
 local_0_0 = new RT["poet::Date"]()["getTime"]();
 local_0_1 = RT["p7::nth-prime"](10001);
 local_0_2 = new RT["poet::Date"]()["getTime"]();
-RT["poet::println"](RT["poet::/"](RT["poet::-"](local_0_2, local_0_0), 1000), "ms: ", local_0_1);
+RT["poet::println"](RT["poet::/"](RT["poet::-"](local_0_2, local_0_0), 1000), "ms:", local_0_1);
 })();
 
 RT["p7::reset!"]();
@@ -277,7 +277,7 @@ var local_0_0, local_0_1, local_0_2;
 local_0_0 = new RT["poet::Date"]()["getTime"]();
 local_0_1 = RT["p7::nth-prime"](10001);
 local_0_2 = new RT["poet::Date"]()["getTime"]();
-RT["poet::println"](RT["poet::/"](RT["poet::-"](local_0_2, local_0_0), 1000), "ms: ", local_0_1);
+RT["poet::println"](RT["poet::/"](RT["poet::-"](local_0_2, local_0_0), 1000), "ms:", local_0_1);
 })();
 
 RT["p7::reset!"]();
@@ -287,7 +287,7 @@ var local_0_0, local_0_1, local_0_2;
 local_0_0 = new RT["poet::Date"]()["getTime"]();
 local_0_1 = RT["p7::faster-nth-prime"](10001);
 local_0_2 = new RT["poet::Date"]()["getTime"]();
-RT["poet::println"](RT["poet::/"](RT["poet::-"](local_0_2, local_0_0), 1000), "ms: ", local_0_1);
+RT["poet::println"](RT["poet::/"](RT["poet::-"](local_0_2, local_0_0), 1000), "ms:", local_0_1);
 })();
 
 RT["p7::reset!"]();
@@ -297,7 +297,7 @@ var local_0_0, local_0_1, local_0_2;
 local_0_0 = new RT["poet::Date"]()["getTime"]();
 local_0_1 = RT["p7::faster-nth-prime"](10001);
 local_0_2 = new RT["poet::Date"]()["getTime"]();
-RT["poet::println"](RT["poet::/"](RT["poet::-"](local_0_2, local_0_0), 1000), "ms: ", local_0_1);
+RT["poet::println"](RT["poet::/"](RT["poet::-"](local_0_2, local_0_0), 1000), "ms:", local_0_1);
 })();
 
 RT["p7::reset!"]();
@@ -307,5 +307,5 @@ var local_0_0, local_0_1, local_0_2;
 local_0_0 = new RT["poet::Date"]()["getTime"]();
 local_0_1 = RT["p7::faster-nth-prime"](10001);
 local_0_2 = new RT["poet::Date"]()["getTime"]();
-RT["poet::println"](RT["poet::/"](RT["poet::-"](local_0_2, local_0_0), 1000), "ms: ", local_0_1);
+RT["poet::println"](RT["poet::/"](RT["poet::-"](local_0_2, local_0_0), 1000), "ms:", local_0_1);
 })();

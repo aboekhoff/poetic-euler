@@ -41,6 +41,43 @@ RT["poet::Generic"]["addMethod"](RT["poet/sequence::filter"], RT["poet::List"], 
     return local_1_0;
 });
 
+RT["poet::Generic"]["addMethod"](RT["poet/sequence::take"], RT["poet::String"], function(arg_1_0, arg_1_1) {
+    var local_1_0;
+    local_1_0 = 0["substring"](arg_1_0, arg_1_1);
+    return local_1_0;
+});
+
+RT["poet::Generic"]["addMethod"](RT["poet/sequence::drop"], RT["poet::String"], function(arg_1_0, arg_1_1) {
+    var local_1_0;
+    local_1_0 = arg_1_0["substring"](arg_1_1);
+    return local_1_0;
+});
+
+RT["poet::Generic"]["addMethod"](RT["poet/sequence::map"], RT["poet::String"], function(arg_1_0, arg_1_1) {
+    var local_1_0;
+    local_1_0 = RT["poet/sequence::xs,"](function(arg_2_0) {
+        var local_2_0;
+        local_2_0 = arg_1_0(arg_2_0);
+        return local_2_0;
+    });
+    return local_1_0;
+});
+
+RT["poet::Generic"]["addMethod"](RT["poet/sequence::filter"], RT["poet::String"], function(arg_1_0, arg_1_1) {
+    var local_1_0;
+    local_1_0 = RT["poet/sequence::xs,"](function(arg_2_0) {
+        var local_2_0, local_2_1;
+        local_2_1 = arg_1_0(arg_2_0);
+        if (local_2_1 != null && local_2_1 !== false) {
+            local_2_0 = true;
+        } else {
+            local_2_0 = false;
+        };
+        return local_2_0;
+    });
+    return local_1_0;
+});
+
 RT["poet::Generic"]["addMethod"](RT["poet/sequence::take"], RT["poet::Array"], function(arg_1_0, arg_1_1) {
     var local_1_0;
     local_1_0 = arg_1_1["slice"](0, arg_1_0);

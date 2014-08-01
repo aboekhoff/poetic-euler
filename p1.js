@@ -1,11 +1,3 @@
-RT["p1::multiple-of-3?"] = function(arg_1_0) {
-    var local_1_0;
-    block_1_0: {
-        local_1_0 = RT["poet::="](0, RT["poet::mod"](arg_1_0, 3));
-    };
-    return local_1_0;
-};
-
 RT["p1::sum-multiples-to"] = function(arg_1_0) {
     var local_1_0, local_1_1, local_1_2, local_1_3, local_1_4, local_1_5, local_1_6, local_1_7;
     block_1_0: {
